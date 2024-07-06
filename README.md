@@ -1,6 +1,6 @@
 Example Maven multi-module project
 ===
-This is the random push
+This is the random push.
 This project has two maven modules:
 - module1
 - module2
