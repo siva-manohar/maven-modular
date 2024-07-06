@@ -2,23 +2,22 @@ pipeline {
 
     tools {
         maven "maven"
-        jdk "jdk17"
+        java "jdk17"
     }
 
     stages {
-        stage('Initialize'){
-            steps{
-                echo "PATH = ${M2_HOME}/bin:${PATH}"
-                echo "M2_HOME = /var/lib/jenkins/apache-maven*"
-            }
-        }
-        stage('Build') {
+
+        stage('intialize') {
             steps {
-                dir("/var/lib/jenkins/workspace/maven-modular/my-app") {
-                sh 'mvn clean package'
-                }
-            
+                echo "PATH=${MAVEN_HOME}/bin:{$PATH}"
+                echo "MAVEN_HOME=/home/ubuntu/apache-maven-3.8.8"
             }
         }
-     }
+
+        stage('build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+    }
 }
